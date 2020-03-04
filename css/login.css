@@ -1,0 +1,16 @@
+.background{
+    background-color: #393D49;
+    margin-top: 90px;
+    min-height: 450px;
+}
+
+.header {
+    text-align: center;
+}
+.header h1 {
+    font-size: 200%;
+    color: #d0d5d1;
+    margin-top: 55px;
+    margin-bottom: 40px;
+}
+
