@@ -1,0 +1,45 @@
+.banner {
+  width: 100%;
+  height: 56px;
+  background: rgb(108, 142, 253);
+  padding: 5px;
+  padding-left: 20px;
+  color: aliceblue;
+}
+.desc {
+  padding-left: 20px;
+}
+.desc a {
+  margin: 0px 5px;
+}
+.container {
+  width: 100%;
+}
+.table table {
+  width: 1110px;
+}
+.container .table td {
+}
+.op {
+}
+.op input {
+  margin-bottom: 5px;
+}
+.op select {
+  display: inline;
+  width: 10%;
+}
+.footer {
+  text-align: center;
+}
+#name {
+  text-decoration: underline;
+}
+
+/*  */
+@media screen and (max-width: 500px) {
+    .table{
+        width: 100%;
+    }
+} 
+  

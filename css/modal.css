@@ -1,0 +1,24 @@
+#myModal {
+    margin-top: 10%;
+    /* width: auto; */
+    font-size: 14px;
+}
+
+.modal-body input {
+    margin-top: 10px;
+}
+
+.modal-header {
+    line-height: 62px;
+}
+
+#myModal .close {
+    margin-top: -10px;
+    /* background: pink; */
+}
+#name{
+    padding: 0;
+    border: 0;
+    font-size: 16px;
+    margin-top: -5px;
+}
