@@ -24,6 +24,7 @@ window.onload = function (){
     //监听工具条,ok事件
     table.on('tool(test)', function(obj){ //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
       var data = obj.data; //获得当前行数据
+      localStorage.storeId = data.storeId;
       var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
       var tr = obj.tr; //获得当前行 tr 的 DOM 对象（如果有的话）
 

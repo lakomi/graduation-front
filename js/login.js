@@ -17,6 +17,8 @@ $(document).ready(function () {
                 success: function (msg) {
                     if (msg.code == '0') {
                         localStorage.userId = username;
+                        localStorage.storeId = msg.data.userName;
+                        // console.log(localStorage.storeId);
                         window.location.href = "admin.html";
                     }
                     if (msg.code == '1') {
