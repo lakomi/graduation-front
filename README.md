@@ -1,2 +1,2 @@
 # graduation-front
-毕设前端
+自助结账系统前端
