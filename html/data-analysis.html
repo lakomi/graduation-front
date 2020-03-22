@@ -36,58 +36,6 @@
     </div>
 </div>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">
-                    <!-- 模态框（Modal）标题 -->
-                    商家信息
-                </h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
-                </button>
-            </div>
-            <div class="modal-body">
-                用户名：
-                <input id="username" type="text" disabled='disabled'>
-                <br>
-                <script>
-                    //get welcome code
-                    function getName() {
-                        // //console.log('test');
-                        var name = document.getElementById('username');
-                        name.value = localStorage.username;
-                    }
-                </script>
-                原密码：
-                <input type="text" id="oldpsw"><span id="tips">*请输入您的原密码</span>
-                <br> 新密码：
-                <input type="text" id="newpsw" maxlength="15">
-            </div>
-            <div class="modal-footer">
-                <button id="cbtn" type="button" class="btn btn-default" data-dismiss="modal">
-                    关闭
-                </button>
-                <button id="savebtn" type="button" class="btn btn-primary">
-                    提交更改
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script src="../js/adminModal.js"></script>
-<div class="desc">
-    欢迎您&nbsp&nbsp&nbsp
-    <!-- <a href="" > -->
-    <span class="btn btn-lg" data-toggle="modal" data-target="#myModal" id="name" onclick="getName()" title="点击修改密码" style="color:#2F4056;font-size: 150%;">XXX</span>
-    <!-- </a> -->
-    <a href="login.html">
-        <div class="am-topbar-right" style="">
-            <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm" style="background-color: #009688">登出</button>
-        </div>
-    </a>
-</div>
 
 <div class="DAcontainer">、
     <!-- 怎么分析每个人的打卡时间数据 分析星期几打卡时长最长，分析打卡次数最多的时候-->
@@ -150,7 +98,7 @@
         -->
     </div>
     <h3 class="chart_title">本周打卡曲线图（全体成员）</h3>
-    <script src="test_line_prefixfree.min.js"></script>
+<!--    <script src="test_line_prefixfree.min.js"></script>-->
     <div class="lineChart">
         <!--  -->
         <div class='wrapper'>
@@ -161,9 +109,9 @@
             </div>
         </div>
 
-        <script src='test_line_Chart.min.js'></script>
+<!--        <script src='test_line_Chart.min.js'></script>-->
 
-        <script src="test_line_data.js"></script>
+<!--        <script src="test_line_data.js"></script>-->
         <!--  -->
     </div>
 </div>
@@ -178,7 +126,7 @@
 
 </body>
 
-<script src="../js/admin.js"></script>
+<script src="../js/data-analysis.js"></script>
 <script src="../js/banner-btn.js"></script>
 
 </html>

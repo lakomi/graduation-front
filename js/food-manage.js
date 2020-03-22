@@ -1,5 +1,5 @@
 window.onload = function (){
-    var username = localStorage.username;
+    var username = localStorage.userId;
     var name = document.getElementById("name");
     name.innerHTML = username;
 
@@ -57,7 +57,7 @@ window.onload = function (){
         type: "get",
         url: localStorage.url + "/food/getAllFood",
         data: {
-            storeId:localStorage.storeId
+            "storeId":localStorage.storeId
         },
         success: function (data1) {
             // console.log('test');
@@ -65,14 +65,22 @@ window.onload = function (){
                 var list = document.getElementById('list');
                 var nTr = document.createElement('tr');
 
-                list.appendChild(nTr).innerHTML = '<td>' + data1.data[i].foodId + '</td>' +
-                    '<td>' + data1.data[i].foodName + '</td>' +
-                    '<td>' + data1.data[i].foodPrice + '</td>' +
-                    '<td>' + data1.data[i].remark + '</td>' +
-                    '<td>' + data1.data[i].platePhoto + '</td>' +
-                    //<td><input class="btn" type="button" value="111111" disabled="true" title="默认密码"></td>
-                    '<td><a class="layui-btn" lay-event="ok" style="color: #FFFFFF" ><i class="layui-icon">&#xe605;</i></a></td>';
+                if (data1.data[i].remark == null) {
+                    list.appendChild(nTr).innerHTML = '<td style="font-size: large">' + data1.data[i].foodId + '</td>' +
+                        '<td style="font-size: large">' + data1.data[i].foodName + '</td>' +
+                        '<td></td><td></td><td></td>' +
+                        '<td><a class="layui-btn" lay-event="ok" style="color: #FFFFFF" ><i class="layui-icon">&#xe605;</i></a></td>';
+
+                }else{
+                    list.appendChild(nTr).innerHTML = '<td style="font-size: large">' + data1.data[i].foodId + '</td>' +
+                        '<td style="font-size: large">' + data1.data[i].foodName + '</td>' +
+                        '<td style="font-size: large">' + data1.data[i].foodPrice + '</td>' +
+                        '<td style="font-size: large">' + data1.data[i].remark + '</td>' +
+                        '<td><img src="data:image/png;base64,' + data1.data[i].platePhoto + '" style="width:100%;height: auto"></td>' +
+                        '<td><a class="layui-btn" lay-event="ok" style="color: #FFFFFF" ><i class="layui-icon">&#xe605;</i></a></td>';
+                }
             }
+
         },
     });
 

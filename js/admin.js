@@ -1,5 +1,5 @@
 window.onload = function (){
-  var username = localStorage.username;
+  var username = localStorage.userId;
   var name = document.getElementById("name");
   name.innerHTML = username;
 
@@ -34,10 +34,10 @@ window.onload = function (){
           type: "post",
           url: localStorage.url + "/store/modifySelf",
           data: {
-            storeId: data.storeId,
-            storeName: data.storeName,
-            storeAddress: data.storeAddress,
-            storeOwner: data.storeOwner
+            "storeId": data.storeId,
+            "storeName": data.storeName,
+            "storeAddress": data.storeAddress,
+            "storeOwner": data.storeOwner
           },
 
           success: function (data1) {

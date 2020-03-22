@@ -7,9 +7,9 @@ $('#savebtn').click(function () {
     type: "post",
     url: localStorage.url + "/store/modifyPw",
     data: {
-        userId:id,
-        oldPW:oldpsw,
-        newPW:newpsw
+        "userId":id,
+        "oldPW":oldpsw,
+        "newPW":newpsw
     },
 
     success: function (data1) {

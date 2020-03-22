@@ -1,63 +1,16 @@
-window.onload = function (){
-    var username = localStorage.username;
+window.onload = function () {
+    var username = localStorage.userId;
     var name = document.getElementById("name");
     name.innerHTML = username;
+    getAllPlate();
+};
 
-    // layui.use('table', function(){
-    //     var table = layui.table;
-    //     //填充店家信息表格
-    //     table.render({
-    //         elem: '#foodTable'
-    //         ,height: 312
-    //         ,skin:'line'
-    //         ,url: localStorage.url + "/food/getAllFood?storeId="+localStorage.storeId //数据接口
-    //         ,cols: [[ //表头
-    //             {field: 'foodId', title: '菜品编号',align: 'center',style:"height:90px"}
-    //             ,{field: 'foodName', title: '菜品名称',align: 'center',edit:'text'}
-    //             ,{field: 'foodPrice', title: '单价',align: 'center',edit:'text'}
-    //             ,{field: 'remark', title: '备注',align: 'center',edit:'text'}
-    //             ,{field: 'platePhoto', title: '盘子图片',align: 'center',edit:'text'}
-    //             // ,{toolbar: '#foodTable-fil',align: 'center'}
-    //         ]]
-    //     });
-    //
-    //
-    //     //监听工具条,ok事件
-    //     table.on('tool(foodTable-fil)', function(obj){ //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
-    //         var data = obj.data; //获得当前行数据
-    //         var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
-    //         var tr = obj.tr; //获得当前行 tr 的 DOM 对象（如果有的话）
-    //
-    //         if(layEvent === 'ok'){ //编辑
-    //             //发送请求，修改数据
-    //             var ajax = $.ajax({
-    //                 type: "post",
-    //                 url: localStorage.url + "/store/modifySelf",
-    //                 data: {
-    //                     storeId: data.storeId,
-    //                     storeName: data.storeName,
-    //                     storeAddress: data.storeAddress,
-    //                     storeOwner: data.storeOwner
-    //                 },
-    //
-    //                 success: function (data1) {
-    //                     alert(data1.data);
-    //                 },
-    //                 error: function (data1) {
-    //                 },
-    //             });
-    //         }
-    //     });
-    //
-    //
-    // });
-
-
-    var ajax = $.ajax({
+function getAllPlate() {
+    $.ajax({
         type: "get",
         url: localStorage.url + "/plate/getAllPlates",
         data: {
-            storeId:localStorage.storeId
+            "storeId": localStorage.storeId
         },
         success: function (data1) {
             // console.log('test');
@@ -65,21 +18,76 @@ window.onload = function (){
                 var list = document.getElementById('list');
                 var nTr = document.createElement('tr');
 
-                list.appendChild(nTr).innerHTML = '<td>' + data1.data[i].plateId + '</td>' +
-                    '<td>' + data1.data[i].picture + '</td>' +
-                    '<td>' + data1.data[i].price + '</td>' +
-                    '<td>' + data1.data[i].usedCount + '</td>' +
-                    '<td>' + data1.data[i].remark + '</td>' +
-                    //<td><input class="btn" type="button" value="111111" disabled="true" title="默认密码"></td>
-                    '<td><a class="layui-btn" lay-event="ok" style="color: #FFFFFF" ><i class="layui-icon">&#xe605;</i></a></td>';
+                list.appendChild(nTr).innerHTML = '<tr><td style="font-size: large;width: 5%;">' + data1.data[i].plateId + '</td>' +
+                    '<td style="width: 20%;"><img src="data:image/png;base64,' + data1.data[i].picture + '" style="width:100%;height: auto"></td>' +
+                    '<td style="font-size: large;width: 25%;" onclick="showElement(this)">' + data1.data[i].price + '</td>' +
+                    '<td style="font-size: large;width: 10%;">' + data1.data[i].usedCount + '</td>' +
+                    '<td style="font-size: large;width: 25%;" onclick="showElement(this)">' + data1.data[i].remark + '</td>' +
+                    '<td><button class="layui-btn layui-btn-sm" onclick="ok(this)" style="color: #FFFFFF" ><i class="layui-icon">&#xe605;</i></button><br>' +
+                    '<button class="layui-btn layui-btn-danger layui-btn-sm" onclick="deletePlate(this)" style="color: #FFFFFF" ><i class="layui-icon">&#xe640;</i></button>' +
+                    '</td></tr>';
             }
         },
     });
+}
 
+function showElement(element) {
+    var oldData = element.innerHTML;//原单元格里的值
+    var newobj = document.createElement('input');//创建新的input框
+    newobj.type = 'text';
+    newobj.onblur = function () {
+        element.innerHTML = this.value ? this.value : oldData; //当触发时判断新增元素值是否为空，为空则不修改，并返回原有值
+    }
+    element.innerHTML = '';
+    element.appendChild(newobj);//把新的值赋到单元格
+    newobj.focus();
+}
+//确认修改
+function ok(element) {
+    var tableData = new Array(); //用于存储当前行数据
+    var td = $(element).parent().parent().find("td");
+    for (var i = 0; i < td.length; i++) {
+        // if(i==1){
+        //     var img = $(td[i]).find("img");
+        //     var string = img[0].src
+        //     string = string.replace("data:image/png;base64,", "");
+        //     data.push(string);
+        // }else{
+        //     data.push(td[i].innerHTML);
+        // }
+        tableData.push(td[i].innerHTML);
+    }
 
-
-};
-
-
+    $.ajax({
+        type: "post",
+        url: localStorage.url + "/plate/modifyPlate",
+        data: {
+            "plateId":tableData[0],
+            "price":tableData[2],
+            "remark":tableData[4]
+        },
+        success: function (msg) {
+            alert(msg.data);
+        },
+    });
+}
+//删除盘子
+function deletePlate(element) {
+    var message = confirm("真的不要这个盘子了吗？这个盘子可能还在装菜，请先确认已修改成其他盘子");
+    var td = $(element).parent().parent().find("td");
+    if (message == true) {
+        $.ajax({
+            type: "post",
+            url: localStorage.url + "/plate/deletePlate",
+            data: {
+                "plateId":td[0].innerHTML
+            },
+            success: function (msg) {
+                alert(msg.data);
+                window.location.href = "plate-manage.html";
+            },
+        });
+    }
+}
 
 

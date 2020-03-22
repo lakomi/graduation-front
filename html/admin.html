@@ -22,10 +22,10 @@
 <body onselectstart="return false;">
 
     <div class="banner" style="background-color: #2F4056">
-        <div class="title" style="margin-top: 10px">
+        <div class="title" style="margin-top: 10px;font-size: larger">
             <h1>自助结账小程序后台系统</h1>
         </div>
-        <div class="bannerbtn">
+        <div class="bannerbtn" style="font-size: medium">
             <ul>
                 <li id="details">个人信息</li>
                 <li id="food">菜品管理</li>
@@ -51,14 +51,6 @@
                     用户名：
                     <input id="username" type="text" disabled='disabled'>
                     <br>
-                    <script>
-                        //get welcome code
-                        function getName() {
-                            // //console.log('test');
-                            var name = document.getElementById('username');
-                            name.value = localStorage.username;
-                        }
-                    </script>
                     原密码：
                     <input type="text" id="oldpsw"><span id="tips">*请输入您的原密码</span>
                     <br> 新密码：
@@ -80,6 +72,15 @@
     <div class="desc">
         欢迎您&nbsp&nbsp&nbsp
         <!-- <a href="" > -->
+        <script>
+            //get welcome code
+            function getName() {
+                // //console.log('test');
+                var name = document.getElementById('username');
+                name.value = localStorage.userId;
+                alert(name.value);
+            }
+        </script>
         <span class="btn btn-lg" data-toggle="modal" data-target="#myModal" id="name" onclick="getName()" title="点击修改密码" style="color:#2F4056;font-size: 150%;">XXX</span>
         <!-- </a> -->
         <a href="login.html">
