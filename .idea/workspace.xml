@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12aa271e-39fc-487e-8c93-3e78548148ed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/html/food-add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/plate-add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/food-add.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/plate-add.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/plate-manage.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/plate-manage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/data-analysis.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/data-analysis.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/food-manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/food-manage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/plate-manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/plate-manage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/adminModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/adminModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/data-analysis.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/data-analysis.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/food-manage.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/food-manage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/plate-manage.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/plate-manage.js" afterDir="false" />
-    </list>
+    <list default="true" id="12aa271e-39fc-487e-8c93-3e78548148ed" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -342,7 +326,7 @@
       <workItem from="1584765886082" duration="11019000" />
       <workItem from="1584843893024" duration="119000" />
       <workItem from="1584844170022" duration="3486000" />
-      <workItem from="1584852261855" duration="14097000" />
+      <workItem from="1584852261855" duration="14338000" />
     </task>
     <task id="LOCAL-00001" summary="2020.3.4-1.0">
       <created>1583307645755</created>
@@ -365,14 +349,22 @@
       <option name="project" value="LOCAL" />
       <updated>1584270079725</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="2020.3.22-1.0">
+      <created>1584879853954</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1584879853954</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95775000" />
+    <option name="totallyTimeSpent" value="96016000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="1" />
@@ -413,7 +405,8 @@
     <MESSAGE value="2020.3.4-1.0" />
     <MESSAGE value="2020.3.13-1.0" />
     <MESSAGE value="2020.3.15-1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="2020.3.15-1.0" />
+    <MESSAGE value="2020.3.22-1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="2020.3.22-1.0" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/AmazeUI-2.7.2/login.html" />
