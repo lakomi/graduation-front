@@ -3,22 +3,16 @@ var myChart = echarts.init(document.getElementById('food_sell'));
 window.onload = function () {
     myChart.setOption({
         title: {
-            left: 'center',
-            text: '菜品日销售量'
+            left: 'left',
+            text: '菜品日销售量(/元)'
         },
-        tooltip: {},
         xAxis: {
             data: []
         },
         yAxis: {},
-        series: [{
-            name: '销售额',
-            type: 'line',
-            data: []
-        }]
     });
 };
-
+//日期选择
 layui.use('laydate', function(){
     var laydate1 = layui.laydate;
     var laydate2 = layui.laydate;
@@ -49,46 +43,60 @@ layui.use('form', function(){
             },
             success: function (msg) {
                 var daylist = new Array();
-                var valuelist = new Array();
-                var list = msg.data;
-                for(var key in list){
-                    daylist.push(key);
-                    valuelist.push(list[key]);
+                var foodlist = new Array();
+                var serieslist = new Array();
+
+                for(var i = 0;i<msg.data.length;i++) {
+                    if(i == 0) {
+                        for (var key in msg.data[i].day_values) {//日期，统计一遍即可
+                            daylist.push(key);
+                        }
+                    }
+                    var valuelist = new Array();   //y值
+                    var tempseries = {};   //自定义series
+                    foodlist.push(msg.data[i].foodName);
+                    for (var key in  msg.data[i].day_values) {
+                        valuelist.push( msg.data[i].day_values[key]);
+                    }
+                    tempseries = {
+                        data : valuelist,
+                        name : msg.data[i].foodName,
+                        type : 'line'
+                    };
+                    serieslist.push(tempseries);
                 }
-                myChart.clear();
                 var option = {
-                    // Make gradient line here
-                    visualMap: [{
-                        show: false,
-                        type: 'continuous',
-                        seriesIndex: 0,
-                        min: 0,
-                        max: 400
-                    }],
-                    title: [{
-                        left: 'center',
-                        text: '店铺营业额'
-                    }],
-                    tooltip: {
-                        trigger: 'axis',
+                    title: {
+                        left: 'left',
+                        text: '菜品日销售量(/元)'
                     },
-                    xAxis: [{
-                        data: daylist
-                    }],
-                    yAxis: [{
-                        splitLine: {show: false}
-                    }],
-                    grid: [{
-                        // bottom: '60%'
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: foodlist
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
                         containLabel: true
-                    }],
-                    series: [{
-                        type: 'line',
-                        showSymbol: false,
-                        data: valuelist
-                    }]
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: daylist
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: serieslist
                 };
-                //使用刚指定的配置项和数据显示图表。
                 myChart.setOption(option);
             },
         });
