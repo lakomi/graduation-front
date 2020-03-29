@@ -27,7 +27,6 @@ layui.use('upload', function(){
 
 layui.use('form', function(){
     var form = layui.form;
-    
     form.on('submit(*)',function (elementData) {
         price = elementData.field.single_price;
         remark = elementData.field.plate_remark;
@@ -47,6 +46,4 @@ layui.use('form', function(){
             },
         });
     })
-
-    //各种基于事件的操作，下面会有进一步介绍
 });

@@ -39,10 +39,10 @@
 
 }
 
-li:hover {
-    /*background: rgb(47, 81, 233);*/
-    background: #009688;
-}
+/*li:hover {*/
+/*    !*background: rgb(47, 81, 233);*!*/
+/*    background: #009688;*/
+/*}*/
 
 #logout {
     margin-right: 10px;

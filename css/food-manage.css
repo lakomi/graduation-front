@@ -37,10 +37,6 @@
 
 }
 
-li:hover {
-    background: #009688;
-}
-
 #list tr{
     height: 90px;
     width: 100%;

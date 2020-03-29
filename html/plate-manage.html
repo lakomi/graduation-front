@@ -26,12 +26,37 @@
     <div class="title" style="margin-top: 10px;font-size: larger">
         <h1>自助结账小程序后台系统</h1>
     </div>
-    <div class="bannerbtn" style="font-size: medium">
-        <ul>
-            <li id="details">个人信息</li>
-            <li id="food">菜品管理</li>
-            <li id="plate">餐盘管理</li>
-            <li id="DA">数据分析</li>
+    <div class="bannerbtn" style="margin-right: 10px">
+        <ul class="layui-nav" lay-filter="">
+            <li class="layui-nav-item"><a href="admin.html">店铺信息</a></li>
+            <li class="layui-nav-item">
+                <a href="">菜品管理</a>
+                <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                    <dd><a href="food-manage.html">查看详情</a></dd>
+                    <dd><a href="food-add.html">添加菜品</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item layui-this">
+                <a href="">餐盘管理</a>
+                <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                    <dd><a href="plate-manage.html">查看详情</a></dd>
+                    <dd><a href="plate-add.html">添加餐盘</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="">数据分析</a>
+                <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                    <dd><a href="data-analysis-store.html">店铺营业额</a></dd>
+                    <dd><a href="data-analysis-food.html">菜品销售额</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="">用户中心</a>
+                <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                    <dd><a href="modify-pw.html">修改密码</a></dd>
+                    <dd><a href="login.html">退了</a></dd>
+                </dl>
+            </li>
         </ul>
 
     </div>
@@ -83,11 +108,11 @@
     <!-- <a href="" > -->
     <span class="btn btn-lg" data-toggle="modal" data-target="#myModal" id="name" onclick="getName()" title="点击修改密码" style="color:#2F4056;font-size: 150%;">XXX</span>
     <!-- </a> -->
-    <a href="plate-add.html">
-        <div class="am-topbar-right" style="">
-            <button class="am-btn am-btn-primary am-topbar-btn am-btn-default" style="background-color: #009688"><i class="layui-icon">&#xe624;</i>添加餐盘</button>
-        </div>
-    </a>
+<!--    <a href="plate-add.html">-->
+<!--        <div class="am-topbar-right" style="">-->
+<!--            <button class="am-btn am-btn-primary am-topbar-btn am-btn-default" style="background-color: #009688"><i class="layui-icon">&#xe624;</i>添加餐盘</button>-->
+<!--        </div>-->
+<!--    </a>-->
 </div>
 
 <div class="container" style="margin-top: 50px">
